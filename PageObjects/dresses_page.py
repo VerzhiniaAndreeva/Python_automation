@@ -1,17 +1,19 @@
-from PageObjects import webElements_manipulations
+from selenium.webdriver.support.ui import WebDriverWait
+from PageObjects import page
 
 class Dresses:
-
-    title = "Dresses"
+    tittle = "Dresses"
     tabDress = "DRESSES"
 
-def __init__(self, driver):
-    self.driver = driver
+    def __init__(self, driver):
+        self.driver = driver
+        tabDresses = self.driver.find_element_by_css_selector("[title='Dresses']")
 
-def getElementTittle(self):
-    element = self.driver.find_element_by_css_selector(self.title)
-    return element.tittle
+  #  def getElementTittleDisplay(self, tabDresses):
+   #     return
 
-def selectDressTab(self, tabDresses):
-    webElements_manipulations.Maniplations.click_button(tabDresses)
-    return tabDresses
+    def selectDressTab(self, tabDresses):
+        self.tabDresses = tabDresses
+        page.MainPage.click_button(tabDresses)
+##        WebDriverWait.until(self.getElementTittleDisplay())
+        return tabDresses

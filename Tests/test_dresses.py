@@ -6,9 +6,9 @@ from PageObjects.login_page import LoginPage
 
 class MyTestCaseDresses(unittest.TestCase):
     def test_dresses(self):
-        test_cases.MyTestCase.setUp()
-        test_cases.MyTestCase.test_login()
-        dresses_page.selectDressTab()
+        test_cases.MyTestCase.setUp(self)
+        test_cases.MyTestCase.test_login(self)
+        dresses_page.selectDressTab(self)
 
 
 if __name__ == '__main__':
