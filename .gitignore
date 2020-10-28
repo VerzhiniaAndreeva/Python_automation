@@ -3,3 +3,10 @@
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+/Common/__pycache__/driver_initialize.cpython-37.pyc
+/PageObjects/__pycache__/HomePage.cpython-37.pyc
+/PageObjects/__pycache__/dresses_page.cpython-37.pyc
+/PageObjects/__pycache__/page.cpython-37.pyc
+/Tests/__pycache__/__init__.cpython-37.pyc
+/Tests/__pycache__/base_test.cpython-37.pyc
+/Tests/__pycache__/test_cases.cpython-37.pyc
