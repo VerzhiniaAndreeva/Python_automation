@@ -1,4 +1,3 @@
-from PageObjects.BasePageElement import BasePageElement
 from PageObjects.HomePage import HomePage
 
 class BasePage(object):
@@ -24,15 +23,11 @@ class MainPage(BasePage):
         element = self.driver.find_element(element.GO_BUTTON)
         element.click()
 
-    def getElementTittle(self):
-        element = self.driver.find_element_by_css_selector(self.title)
-        return element.tittle
-
-
 class SearchResultsPage(BasePage):
     """Search results page action methods come here"""
 
     def is_results_found(self):
         # Probably should search for this text in the specific page
         # element, but as for now it works fine
+
         return "No results found." not in self.driver.page_source
