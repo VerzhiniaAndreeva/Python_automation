@@ -10,3 +10,14 @@
 /Tests/__pycache__/__init__.cpython-37.pyc
 /Tests/__pycache__/base_test.cpython-37.pyc
 /Tests/__pycache__/test_cases.cpython-37.pyc
+/Common/__pycache__/__init__.cpython-39.pyc
+/Common/__pycache__/driver_initialize.cpython-39.pyc
+/Common/__pycache__/read_json.cpython-39.pyc
+/PageObjects/__pycache__/HomePage.cpython-39.pyc
+/PageObjects/__pycache__/__init__.cpython-39.pyc
+/PageObjects/__pycache__/basePage.cpython-39.pyc
+/PageObjects/__pycache__/dresses_page.cpython-39.pyc
+/PageObjects/__pycache__/login_page.cpython-39.pyc
+/Tests/__pycache__/__init__.cpython-39.pyc
+/Tests/__pycache__/base_test.cpython-39.pyc
+/Tests/__pycache__/test_cases.cpython-39.pyc
