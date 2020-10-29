@@ -1,14 +1,15 @@
 import unittest
-from Tests import test_cases
-from PageObjects import dresses_page
-from Common.driver_initialize import DriverInitialize
+from PageObjects.dresses_page import Dresses
+from Tests.base_test import BaseTest
 from PageObjects.login_page import LoginPage
 
-class MyTestCaseDresses(unittest.TestCase):
-    def test_dresses(self):
-        test_cases.MyTestCase.setUp(self)
-        test_cases.MyTestCase.test_login(self)
-        dresses_page.selectDressTab(self)
+class MyTestCaseDresses(BaseTest):
+
+    def test_login(self):
+        self.loginPage = LoginPage(self.driver)
+        self.assertEqual(self.loginPage.getHeaderText(), "Automation Practice Website")
+        dressesPage = Dresses(self.driver)
+        dressesPage.selectDressTab()
 
 
 if __name__ == '__main__':

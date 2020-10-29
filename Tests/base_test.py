@@ -6,12 +6,12 @@ class BaseTest(TestCase):
     driver = None
 
     def setUp(self):
-        test_Settings = DriverInitialize.getTestJsonFileSettings(self)
-        base_URL = DriverInitialize.getJsonFileAttributeValue(self, test_Settings, "instance")
-        browserType = DriverInitialize.getJsonFileAttributeValue(self, test_Settings, "browser")
-        resolution = DriverInitialize.getJsonFileAttributeValue(self, test_Settings, "resolution").split(',')
+        test_Settings = DriverInitialize().getTestJsonFileSettings()
+        base_URL = DriverInitialize().getJsonFileAttributeValue(test_Settings, "instance")
+        browserType = DriverInitialize().getJsonFileAttributeValue(test_Settings, "browser")
+        resolution = DriverInitialize().getJsonFileAttributeValue(test_Settings, "resolution").split(',')
 
-        self.driver = DriverInitialize.initialize(self, browserType)
+        self.driver = DriverInitialize().initialize(browserType)
         self.driver.set_window_size(resolution[0], resolution[1])
         self.driver.maximize_window()
         self.driver.get(base_URL)
