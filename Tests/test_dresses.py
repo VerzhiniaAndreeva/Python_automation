@@ -10,6 +10,7 @@ class MyTestCaseDresses(BaseTest):
         self.assertEqual(self.loginPage.getHeaderText(), "Automation Practice Website")
         dressesPage = Dresses(self.driver)
         dressesPage.selectDressTab()
+        self.assertEqual()
 
 
 if __name__ == '__main__':
