@@ -10,8 +10,7 @@ class MyTestCaseDresses(BaseTest):
         self.assertEqual(self.loginPage.getHeaderText(), "Automation Practice Website")
         dressesPage = Dresses(self.driver)
         dressesPage.selectDressTab()
-        self.assertEqual()
-
+        dressesPage.selectCasualDressesCategory()
 
 if __name__ == '__main__':
     unittest.main()

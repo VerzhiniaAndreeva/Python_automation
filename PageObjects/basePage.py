@@ -1,3 +1,5 @@
+from selenium.common.exceptions import NoSuchElementException
+
 from PageObjects.HomePage import HomePage
 
 class BasePage(object):
@@ -22,6 +24,13 @@ class BasePage(object):
         element = self.driver.find_element(element.GO_LINK)
         element.click()
 
+    def is_element_present(self, how, what):
+        try: self.driver.find_element(by=how, value=what)
+        except NoSuchElementException: return False
+        return True
+
+
+
 class SearchResultsPage(BasePage):
     """Search results page action methods come here"""
 
@@ -30,3 +39,4 @@ class SearchResultsPage(BasePage):
         # element, but as for now it works fine
 
         return "No results found." not in self.driver.page_source
+
