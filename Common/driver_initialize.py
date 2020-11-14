@@ -7,11 +7,14 @@ from webdriver_manager.firefox import GeckoDriverManager
 class DriverInitialize:
 
     def initialize(self, browserType):
+        global driver
         if browserType == "firefox":
-            return webdriver.Firefox(executable_path=GeckoDriverManager().install())
+            driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
         if browserType == "chrome":
-            return webdriver.Chrome(executable_path=ChromeDriverManager().install())
+            driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+
+        return driver
 
     def getTestJsonFileSettings(self):
         testDataPath = os.path.abspath("test_settings.json")
@@ -21,3 +24,6 @@ class DriverInitialize:
     def getJsonFileAttributeValue(self, jsonFile, attribute):
         testDataJsonFile = json.readJson(jsonFile)
         return testDataJsonFile[attribute]
+
+    def getDriver(self):
+        return driver
