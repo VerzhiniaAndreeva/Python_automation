@@ -35,3 +35,11 @@ class BasePage(object):
 
     def findElements(self, selectorType, selector):
         return self.driver.find_elements(selectorType, selector)
+
+    def enter_in_field(self, element):
+        element = self.driver.find_element(element.GO_FIELD)
+        element.send_keys()
+
+
+    def getHeaderText(self, selectorType, selector):
+        return self.driver.find_element(selectorType, selector)
