@@ -5,12 +5,13 @@ from PageObjects.login_page import LoginPage
 
 class MyTestCaseCreateAccount(BaseTest):
 
-    def createAccount(self):
+    def test_login(self):
         self.loginPage = LoginPage()
         self.assertEqual("Automation Practice Website", self.loginPage.getHeaderText())
         signInPage = SignIn()
         signInPage.select_lnk_signIn()
-        signInPage.enterInfield_fld_emailAddress('v.andreeva@free.fr')
+        signInPage.wait_for_emailAddress_visibility()
+        signInPage.enterInfield_fld_emailAddress()
 
 if __name__ == '__main__':
     unittest.main()

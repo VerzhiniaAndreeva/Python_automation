@@ -37,7 +37,7 @@ class BasePage(object):
         return self.driver.find_elements(selectorType, selector)
 
     def enter_in_field(self, element):
-        element = self.driver.find_element(element.GO_FIELD)
+        element = self.driver.find_element(element)
         element.send_keys()
 
 
