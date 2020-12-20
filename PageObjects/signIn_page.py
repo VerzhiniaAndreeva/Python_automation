@@ -14,14 +14,25 @@ class SignIn(BasePage):
     def fld_emailAddress(self):
         return BasePage().findElement(By.ID, 'email_create')
 
+    @property
+    def btn_submitCreate(self):
+        return BasePage().findElement(By.ID, 'SubmitCreate')
+
     def select_lnk_signIn(self):
         return self.lnk_signIn.click()
 
     def fld_emailAddress_is_displayed(self):
         return self.fld_emailAddress.is_displayed()
 
+    def use_btn_submitCreate(self):
+        return self.btn_submitCreate.click()
+
     def wait_for_emailAddress_visibility(self):
         WebDriverWait(self.driver, 10).until(EC.visibility_of(self.fld_emailAddress))
 
-    def enterInfield_fld_emailAddress(self):
-        return self.fld_emailAddress.send_keys('v.andreeva@free.fr')
+    def enterInfield_fld_emailAddress(self, email):
+        return self.fld_emailAddress.send_keys(email)
+
+    def wait_for_elementToBeClickable(self):
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.btn_submitCreate))
+
