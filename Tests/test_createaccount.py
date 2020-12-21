@@ -13,6 +13,7 @@ class MyTestCaseCreateAccount(BaseTest):
         signInPage.wait_for_emailAddress_visibility()
         self.assertEqual("AUTHENTICATION", self.loginPage.getHeaderText())
         signInPage.enterInfield_fld_emailAddress('v.andreeva@free.fr')
+        signInPage.loos_focus()
         signInPage.wait_for_elementToBeClickable()
         signInPage.use_btn_submitCreate()
         self.assertEqual("Create an account", self.loginPage.getHeaderText())

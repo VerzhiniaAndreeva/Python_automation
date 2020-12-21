@@ -1,3 +1,4 @@
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from PageObjects.basePage import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
@@ -18,6 +19,10 @@ class SignIn(BasePage):
     def btn_submitCreate(self):
         return BasePage().findElement(By.ID, 'SubmitCreate')
 
+    @property
+    def logo(self):
+        return  BasePage().findElement(By.CLASS_NAME, 'logo')
+
     def select_lnk_signIn(self):
         return self.lnk_signIn.click()
 
@@ -33,6 +38,15 @@ class SignIn(BasePage):
     def enterInfield_fld_emailAddress(self, email):
         return self.fld_emailAddress.send_keys(email)
 
+    def loos_focus(self):
+        ActionChains(self.driver).send_keys_to_element(self.logo).perform()
+
+    def testMe(self):
+        self.enterInfield_fld_emailAddress('v,andreeva@free.fr')
+        self.loos_focus()
+        
     def wait_for_elementToBeClickable(self):
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.btn_submitCreate))
+        WebDriverWait(self.driver, 10).until(EC.visibility_of(self.btn_submitCreate))
+
+
 
