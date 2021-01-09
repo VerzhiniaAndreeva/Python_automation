@@ -1,16 +1,21 @@
 import unittest
-from PageObjects.dresses_page import Dresses
+from PageObjects.dressesPage import Dresses
 from Tests.base_test import BaseTest
-from PageObjects.login_page import LoginPage
+from PageObjects.homePage import HomePage
 
 class MyTestCaseDresses(BaseTest):
 
-    def test_login(self):
-        self.loginPage = LoginPage()
-        self.assertEqual("Automation Practice Website", self.loginPage.getHeaderText())
+    def test_Select_Casual_Dresses(self):
+
+        self.homePage = HomePage()
+
+        self.assertEqual("Automation Practice Website", self.homePage.getHeaderText())
+
         dressesPage = Dresses()
-        dressesPage.select_tab_dressesTab()
-        dressesPage.select_lnk_casualDresses()
+
+        dressesPage\
+            .select_tab_dressesTab()\
+            .select_lnk_casualDresses()
 
 if __name__ == '__main__':
     unittest.main()

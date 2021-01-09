@@ -1,13 +1,15 @@
 import unittest
 from Tests.base_test import BaseTest
-from PageObjects.login_page import LoginPage
+from PageObjects.homePage import HomePage
 
 
 class MyTestCase(BaseTest):
 
-    def test_login(self):
-        self.loginPage = LoginPage()
-        self.assertEqual("Automation Practice Website", self.loginPage.getHeaderText())
+    def test_Check_Home_Page_Header(self):
+
+        self.homePage = HomePage()
+
+        self.assertEqual("Automation Practice Website", self.homePage.getHeaderText())
 
 
 if __name__ == '__main__':
