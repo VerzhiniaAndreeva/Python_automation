@@ -1,10 +1,12 @@
-class LoginPage:
+from selenium.webdriver.common.by import By
+from PageObjects.basePage import BasePage
 
-    header = "h1"
 
-    def __init__(self, driver):
-        self.driver = driver
+class LoginPage(BasePage):
+
+    @property
+    def header(self):
+        return BasePage().findElement(By.CSS_SELECTOR, 'h1')
 
     def getHeaderText(self):
-        element = self.driver.find_element_by_css_selector(self.header)
-        return element.text
+        return self.header.text

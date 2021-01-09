@@ -1,12 +1,14 @@
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.remote.webelement import WebElement
 
-from PageObjects.HomePage import HomePage
+from Common.driver_initialize import DriverInitialize
+
 
 class BasePage(object):
     """Base class to initialize the base page that will be called from all pages"""
-
-    def __init__(self, driver):
-        self.driver = driver
+    @property
+    def driver(self):
+        return DriverInitialize().getDriver()
 
     def is_title_matches(self):
         """Verifies that the hardcoded text "Python" appears in page title"""
@@ -29,14 +31,17 @@ class BasePage(object):
         except NoSuchElementException: return False
         return True
 
+    def findElement(self, selectorType, selector):
+        try: return self.driver.find_element(selectorType, selector)
+        except NoSuchElementException: return WebElement
+
+    def findElements(self, selectorType, selector):
+        return self.driver.find_elements(selectorType, selector)
+
+    def enter_in_field(self, element):
+        element = self.driver.find_element(element)
+        element.send_keys()
 
 
-class SearchResultsPage(BasePage):
-    """Search results page action methods come here"""
-
-    def is_results_found(self):
-        # Probably should search for this text in the specific page
-        # element, but as for now it works fine
-
-        return "No results found." not in self.driver.page_source
-
+    def getHeaderText(self, selectorType, selector):
+        return self.driver.find_element(selectorType, selector)

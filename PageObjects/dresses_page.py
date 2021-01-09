@@ -1,37 +1,25 @@
-from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from PageObjects.basePage import BasePage
 
+class Dresses(BasePage):
 
-class Dresses:
+    @property
+    def tab_dressesTab(self):
+        return BasePage().findElement(By.CSS_SELECTOR, '#block_top_menu > ul > li:nth-of-type(2)')
 
-    def __init__(self, driver):
-        self.driver = driver
+    @property
+    def categoriesBlock(self):
+        return BasePage().findElement(By.CSS_SELECTOR, 'h2.title_block')
 
-        # self._dressesTab = driver.find_element_by_css_selector("#block_top_menu > ul > li:nth-of-type(2)"),
-        # self._cotegoriesBlock = driver.find_element_by_css_selector("h2.title_block"),
-        # self._casualDressesCategory = driver.find_element_by_css_selector("#categories_block_left div > ul> li:nth-of-type(1) a"),
+    @property
+    def lnk_casualDresses(self):
+        return BasePage().findElement(By.CSS_SELECTOR, '#categories_block_left div > ul> li:nth-of-type(1) a')
 
+    def select_tab_dressesTab(self):
+        return self.tab_dressesTab.click()
 
-    # def selectDressTab(self):
-    #     self._dressesTab.click()
-    #
-    # def categoriesBlockIsPresent(self):
-    #     self._cotegoriesBlock.is_displayed()
-    #     return True
-    #
-    # def selectCasualDressesCategory(self):
-    #     WebDriverWait().until(self.categoriesBlockIsPresent())
-    #     self._casualDressesCategory.click()
+    def categoriesBlock_is_displayed(self):
+        return self.categoriesBlock.is_displayed()
 
-    def selectDressTab(self):
-        dressesTab = self.driver.find_element_by_css_selector("#block_top_menu > ul > li:nth-of-type(2)")
-        dressesTab.click()
-
-    def categoriesBlockIsPresent(self):
-        cotegoriesBlock = self.driver.find_element_by_css_selector("h2.title_block")
-        cotegoriesBlock.is_displayed()
-        return True
-
-    def selectCasualDressesCategory(self):
-        #WebDriverWait().until(self.categoriesBlockIsPresent())
-        casualDressesCategory = self.driver.find_element_by_css_selector("#categories_block_left div > ul> li:nth-of-type(1) a")
-        casualDressesCategory.click()
+    def select_lnk_casualDresses(self):
+        return self.lnk_casualDresses.click()

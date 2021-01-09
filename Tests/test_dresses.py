@@ -6,11 +6,11 @@ from PageObjects.login_page import LoginPage
 class MyTestCaseDresses(BaseTest):
 
     def test_login(self):
-        self.loginPage = LoginPage(self.driver)
-        self.assertEqual(self.loginPage.getHeaderText(), "Automation Practice Website")
-        dressesPage = Dresses(self.driver)
-        dressesPage.selectDressTab()
-        dressesPage.selectCasualDressesCategory()
+        self.loginPage = LoginPage()
+        self.assertEqual("Automation Practice Website", self.loginPage.getHeaderText())
+        dressesPage = Dresses()
+        dressesPage.select_tab_dressesTab()
+        dressesPage.select_lnk_casualDresses()
 
 if __name__ == '__main__':
     unittest.main()
