@@ -1,4 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.remote.webelement import WebElement
 
 from Common.driver_initialize import DriverInitialize
 
@@ -31,7 +32,8 @@ class BasePage(object):
         return True
 
     def findElement(self, selectorType, selector):
-        return self.driver.find_element(selectorType, selector)
+        try: return self.driver.find_element(selectorType, selector)
+        except NoSuchElementException: return WebElement
 
     def findElements(self, selectorType, selector):
         return self.driver.find_elements(selectorType, selector)

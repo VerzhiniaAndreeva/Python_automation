@@ -9,5 +9,6 @@ class MyTestCase(BaseTest):
         self.loginPage = LoginPage()
         self.assertEqual("Automation Practice Website", self.loginPage.getHeaderText())
 
+
 if __name__ == '__main__':
     unittest.main()
