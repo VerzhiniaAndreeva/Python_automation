@@ -30,12 +30,11 @@ class MyTestCaseCreateAccount(BaseTest):
             .enterInField_fld_customer_firstname('Very')\
             .enterInField_fld_customer_lastname('Andrea')\
             .enterInField_fld_password("123erggggg")\
-            .enter_birthday_date("02", "07", "1974")\
             .enterInField_fld_address("St.George str, 9")\
             .enterInField_fld_city("Assenovgrad")\
-            .select_ddl_state("Georgia")\
+            .select_ddl_state('1')\
             .enterInField_fld_postcode("12345")\
-            .select_ddl_country("United States")\
+            .select_ddl_country('21')\
             .enterInField_fld_phone_mobile("0889476987")\
             .enterInField_fld_alias("Professor Folk 2")\
             .use_btn_submitAccount()

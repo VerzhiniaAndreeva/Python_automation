@@ -12,7 +12,7 @@ class Wait:
 
     def ForElementDisplayed(self, elementLocator):
         wait = WebDriverWait(self.driver, 20, 0.1)
-        wait.until(expected_conditions.presence_of_element_located((elementLocator)), "Timeout reached! Element was not displayed")
+        wait.until(expected_conditions.visibility_of_element_located((elementLocator)), "Timeout reached! Element was not displayed")
 
     def ForElementNotDisplayed(self, elementLocator):
         wait = WebDriverWait(self.driver, 20, 0.1)
@@ -20,4 +20,4 @@ class Wait:
 
     def ForElementPresent(self,elementLocator):
         wait = WebDriverWait(self.driver, 20, 0.1)
-        wait.until(expected_conditions.visibility_of_all_elements_located((elementLocator)), "Timeout reached! Element was not present")
+        wait.until(expected_conditions.presence_of_element_located((elementLocator)), "Timeout reached! Element was not present")
