@@ -8,9 +8,9 @@ class Get:
         return DriverInitialize().getDriver()
 
     def elementDisplayed(self, elementLocator):
-        element = self.driver.find_element(elementLocator[0], elementLocator[1])
+        element = self.driver.find_element(*elementLocator)
         return element.is_displayed
 
     def elementText(self, elementLocator):
-        element = self.driver.find_element(elementLocator[0], elementLocator[1])
+        element = self.driver.find_element(*elementLocator)
         return element.text

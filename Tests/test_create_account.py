@@ -20,7 +20,7 @@ class MyTestCaseCreateAccount(BaseTest):
         self.assertEqual("AUTHENTICATION", self.homePage.getHeaderText())
 
         signInPage\
-            .enterInfield_fld_emailAddress('v.andreeva@free.fr')\
+            .enterInfield_fld_emailAddress('vaa.andreeva@free.fr')\
             .use_btn_submitCreate()
 
         self.assertEqual("CREATE AN ACCOUNT", self.homePage.getHeaderText())
@@ -29,7 +29,7 @@ class MyTestCaseCreateAccount(BaseTest):
             .selectGender('Ms')\
             .enterInField_fld_customer_firstname('Very')\
             .enterInField_fld_customer_lastname('Andrea')\
-            .enterInField_fld_password("123erggggg")\
+            .enterInField_fld_password("123ergggggg")\
             .enterInField_fld_address("St.George str, 9")\
             .enterInField_fld_city("Assenovgrad")\
             .select_ddl_state('1')\
@@ -38,6 +38,8 @@ class MyTestCaseCreateAccount(BaseTest):
             .enterInField_fld_phone_mobile("0889476987")\
             .enterInField_fld_alias("Professor Folk 2")\
             .use_btn_submitAccount()
+
+        self.assertEqual("MY ACCOUNT", self.homePage.getHeaderText())
 
 
 if __name__ == '__main__':

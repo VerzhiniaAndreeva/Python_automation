@@ -97,7 +97,11 @@ class SignIn(BasePage):
 
     @property
     def btn_submitAccount(self):
-        return By.ID, 'SubmitAccount'
+        return By.ID, 'submitAccount'
+
+    @property
+    def btn_logout(self):
+        return By.CLASS_NAME, 'logout'
 
     def icon_heart(self):
         return By.CLASS_NAME, 'icon-heart'
@@ -181,3 +185,7 @@ class SignIn(BasePage):
         Do().click(self.btn_submitAccount)
         Wait().ForElementDisplayed(self.icon_heart())
         return self
+
+    def use_btn_logout(self):
+        Do.click(self.btn_logout)
+        return  self
