@@ -196,7 +196,7 @@ class SignIn(BasePage):
         return self
 
     def logout(self):
-        Do.click(self.btn_logout)
+        Do().click(self.btn_logout)
         return self
 
     def get_email_text(self):

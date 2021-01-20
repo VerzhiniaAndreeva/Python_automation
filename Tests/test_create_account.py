@@ -20,7 +20,7 @@ class MyTestCaseCreateAccount(BaseTest):
         self.assertEqual("AUTHENTICATION", self.homePage.getHeaderText())
 
         signInPage\
-            .enterInfield_fld_emailAddress('v.a.andreeva@free.fr')\
+            .enterInfield_fld_emailAddress('va.a.andreeva@free.fr')\
             .use_btn_submitCreate()
 
         self.assertEqual("CREATE AN ACCOUNT", self.homePage.getHeaderText())
