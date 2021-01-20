@@ -20,11 +20,10 @@ class MyTestCaseCreateAccount(BaseTest):
         self.assertEqual("AUTHENTICATION", self.homePage.getHeaderText())
 
         signInPage\
-            .enterInfield_fld_emailAddress('vaa.andreeva@free.fr')\
+            .enterInfield_fld_emailAddress('v.a.andreeva@free.fr')\
             .use_btn_submitCreate()
 
         self.assertEqual("CREATE AN ACCOUNT", self.homePage.getHeaderText())
-
         signInPage\
             .selectGender('Ms')\
             .enterInField_fld_customer_firstname('Very')\
@@ -40,6 +39,9 @@ class MyTestCaseCreateAccount(BaseTest):
             .use_btn_submitAccount()
 
         self.assertEqual("MY ACCOUNT", self.homePage.getHeaderText())
+
+        signInPage\
+            .logout()
 
 
 if __name__ == '__main__':

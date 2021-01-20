@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from Common.do import Do
+from Common.get import Get
 from PageObjects.basePage import BasePage
 from Common.wait import Wait
 
@@ -103,6 +104,14 @@ class SignIn(BasePage):
     def btn_logout(self):
         return By.CLASS_NAME, 'logout'
 
+    @property
+    def fld_first_name(self):
+        return By.ID, 'firstname'
+
+    @property
+    def fld_last_name(self):
+        return By.ID, 'lastname'
+
     def icon_heart(self):
         return By.CLASS_NAME, 'icon-heart'
 
@@ -186,6 +195,15 @@ class SignIn(BasePage):
         Wait().ForElementDisplayed(self.icon_heart())
         return self
 
-    def use_btn_logout(self):
+    def logout(self):
         Do.click(self.btn_logout)
-        return  self
+        return self
+
+    def get_email_text(self):
+        return Get().elementText(self.fld_email)
+
+    def get_first_name(self):
+        return Get().elementText(self.fld_first_name)
+
+    def get_last_name(self):
+        return Get().elementText(self.fld_last_name)
