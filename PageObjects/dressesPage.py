@@ -24,7 +24,7 @@ class Dresses(BasePage):
 
     @property
     def product_img_link(self):
-        return By.CLASS_NAME, 'product_img_link'
+        return By.CLASS_NAME, 'product-container'
     
     @property
     def icon_large(self):

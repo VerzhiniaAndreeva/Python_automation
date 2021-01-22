@@ -22,7 +22,6 @@ class Do:
 
     def scrollToElement(self, elementLocator):
         element = self.driver.find_element(*elementLocator)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
+        element.location_once_scrolled_into_view
 
 
