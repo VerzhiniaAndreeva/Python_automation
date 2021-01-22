@@ -15,7 +15,8 @@ class MyTestCaseDresses(BaseTest):
 
         dressesPage\
             .select_tab_dressesTab()\
-            .select_lnk_casualDresses()
+            .select_lnk_casualDresses()\
+            .select_product()
 
 if __name__ == '__main__':
     unittest.main()
