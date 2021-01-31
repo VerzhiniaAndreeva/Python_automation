@@ -30,6 +30,22 @@ class Dresses(BasePage):
     def icon_large(self):
         return By.CLASS_NAME, 'icon-th-large'
 
+    @property
+    def btn_add_to_cart(self):
+        return By.CSS_SELECTOR, 'button.exclusive'
+
+    @property
+    def popup_layer_cart(self):
+        return By.ID, 'layer_cart'
+
+    @property
+    def btn_proceed_to_checkout(self):
+        return By.CSS_SELECTOR, '[title="Proceed to checkout"]'
+
+    @property
+    def btn_standard_checkout(self):
+        return By.CLASS_NAME, 'standard-checkout'
+
     def select_tab_dressesTab(self):
         Do().click(self.tab_dressesTab)
         return self
@@ -47,4 +63,18 @@ class Dresses(BasePage):
         Do().scrollToElement(self.product_img_link)
         Do().click(self.product_img_link)
         Wait().ForElementPresent(self.icon_twitter)
+        return self
+
+    def add_to_cart(self):
+        Do().click(self.btn_add_to_cart)
+        return self
+
+    def proceed_to_checkout(self):
+        Wait().ForElementDisplayed(self.popup_layer_cart)
+        Do().click(self.btn_proceed_to_checkout)
+        Wait().ForElementDisplayed(self.btn_standard_checkout)
+        return self
+
+    def standard_chekcout(self):
+        Do().click(self.btn_standard_checkout)
         return self

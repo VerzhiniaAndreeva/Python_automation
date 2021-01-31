@@ -16,7 +16,10 @@ class MyTestCaseDresses(BaseTest):
         dressesPage\
             .select_tab_dressesTab()\
             .select_lnk_casualDresses()\
-            .select_product()
+            .select_product()\
+            .add_to_cart()\
+            .proceed_to_checkout()\
+            .standard_chekcout()
 
 if __name__ == '__main__':
     unittest.main()
