@@ -24,6 +24,7 @@ class MyTestCaseCreateAccount(BaseTest):
             .use_btn_submitCreate()
 
         self.assertEqual("CREATE AN ACCOUNT", self.homePage.getHeaderText())
+
         signInPage\
             .selectGender('Ms')\
             .enterInField_fld_customer_firstname('Very')\
