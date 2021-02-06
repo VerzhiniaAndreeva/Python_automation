@@ -52,5 +52,17 @@ class MyTestCaseDresses(BaseTest):
 
         self.assertEqual("SHIPPING", self.homePage.getHeaderText())
 
+        dressesPage \
+            .standard_chekcout()
+
+        self.assertEqual("You must agree to the terms of service before continuing.", dressesPage.get_error_text())
+
+        dressesPage \
+            .use_btn_close_error_box()\
+            .use_chb_uniform()\
+            .standard_chekcout()
+
+        self.assertEqual("PLEASE CHOOSE YOUR PAYMENT METHOD", self.homePage.getHeaderText())
+
 if __name__ == '__main__':
         unittest.main()

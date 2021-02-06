@@ -50,6 +50,18 @@ class Dresses(BasePage):
     def btn_processAddress(self):
         return By.CSS_SELECTOR, '[name="processAddress"]'
 
+    @property
+    def error_box(self):
+        return By.CLASS_NAME, 'fancybox-error'
+
+    @property
+    def btn_close_error_box(self):
+        return By.CLASS_NAME, 'fancybox-close'
+
+    @property
+    def chb_uniform(self):
+        return By.ID, 'uniform-cgv'
+
     def select_tab_dressesTab(self):
         Do().click(self.tab_dressesTab)
         return self
@@ -86,3 +98,13 @@ class Dresses(BasePage):
     def use_btn_process_address(self):
         Do().click(self.btn_processAddress)
         return self
+
+    def get_error_text(self):
+        return Get().elementText(self.error_box)
+
+    def use_btn_close_error_box(self):
+        Do().click(self.btn_close_error_box)
+        return self
+
+    def use_chb_uniform(self):
+        Do().click(self.chb_uniform)
