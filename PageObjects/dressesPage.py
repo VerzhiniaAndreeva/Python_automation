@@ -46,6 +46,10 @@ class Dresses(BasePage):
     def btn_standard_checkout(self):
         return By.CLASS_NAME, 'standard-checkout'
 
+    @property
+    def btn_processAddress(self):
+        return By.CSS_SELECTOR, '[name="processAddress"]'
+
     def select_tab_dressesTab(self):
         Do().click(self.tab_dressesTab)
         return self
@@ -77,4 +81,8 @@ class Dresses(BasePage):
 
     def standard_chekcout(self):
         Do().click(self.btn_standard_checkout)
+        return self
+
+    def use_btn_process_address(self):
+        Do().click(self.btn_processAddress)
         return self

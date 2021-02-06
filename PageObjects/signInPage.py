@@ -192,7 +192,7 @@ class SignIn(BasePage):
 
     def use_btn_submitAccount(self):
         Do().click(self.btn_submitAccount)
-        Wait().ForElementDisplayed(self.icon_heart())
+        Wait().ForElementNotDisplayed(self.fld_alias)
         return self
 
     def logout(self):
